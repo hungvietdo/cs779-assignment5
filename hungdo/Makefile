@@ -1,15 +1,16 @@
-# environment variables setup
-CC		=	gcc
+PROGS = GCServer Qclient
+	 
+LIBS    = -w -lnsl  -lsctp -pthread
 
-PROGS =   Qclient
+all:    ${PROGS}
+	@chmod 755 *
 
-CFLAGS          = -w -pthread
+GCServer: GCServer.c
+	gcc  -o GCServer GCServer.c $(LIBS) functions.c
+Qclient: Qclient.c
+	gcc  -o Qclient Qclient.c $(LIBS)
 
-all: $(PROGS)
-
-	
-Qclient:   
-	$(CC) $(CFLAGS) -o Qclient Qclient.c functions.c
 
 clean:
-	rm -f Qclient
+	rm -f $(PROGS) *.o core
+

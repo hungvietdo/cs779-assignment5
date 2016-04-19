@@ -127,21 +127,21 @@ void *ServQclient (void *arg)
    struct sctp_initmsg initm;
 
 	// //Handling UDP client
- 
+	//fromlen = sizeof(from);
 	
     for(;;){
+		
+	memset(buf, '\0', MAX_LEN);	
+
 	 len = sizeof(struct sockaddr_in);
       rc = sctp_recvmsg(socket_Q, buf, sizeof(buf), (SA *)&cliaddr, &len, &sri, &msg_flags);
       buf[rc]= (char) NULL;
       printf("sctp_recvmsg: %s\n", buf);
           
+ 	  
+ 	  printf("sctp_recvmsg: %s\n", buf);
 
-      len = sizeof(cliaddr);
-      getpeername(socket_Q, (SA *) &cliaddr, &len);
-      printf("remote addr: %s,  port %d\n",
-          inet_ntop(AF_INET, &cliaddr.sin_addr, buf,
-          sizeof(buf)), ntohs(cliaddr.sin_port));
- 	   
+	   
 	  //  //
 	  //  addUclientList(from);
 	   

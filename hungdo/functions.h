@@ -1,11 +1,10 @@
-
 #include <stdio.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h> /*inet_ntoa function*/
 #include <netdb.h>
 #include <string.h>
-#include<signal.h>
+#include <signal.h>
 #include <sys/shm.h>
 #include <unistd.h>
 #include <sys/types.h>

@@ -1,6 +1,3 @@
-
-
-
 #include <stdio.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
@@ -54,6 +51,6 @@ void 			setloopback(int s, u_char loop);
 void            UDPsendMessage(int inSock, int outSock,  char *MulticastIPAddress, int UDPport);
 void 			UDPgetMessage(int inSock, int outSock,struct   sockaddr_in HostSend, int UDPport);
 void			SendaMessagetoUDPGroup(char *recvBuf, int outSock,  char *MulticastIPAddress, int UDPport);
-char 			*getHostnamebyIP(struct   sockaddr_in from);
+char 			*getHostnamebyIP(char *ipaddress);
 char *formatMesg(char clienttype[MAXLINE],char Mesg[MAXLINE],struct sockaddr_in from);
 

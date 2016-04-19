@@ -24,7 +24,7 @@ char *argv[];
 
     port_to_connect = SERV_PORT;
 
-    port_to_connect = 10117;
+    //port_to_connect = 10117;
 
     Qsocket = socket (AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP);
     server.sin_family = AF_INET;
@@ -51,6 +51,11 @@ char *argv[];
                 printf("Successfully connected to %s\n", hostname[i]);
                 break;
             }
+        if (i==3)
+        {
+            printf("There is no server available\n");
+            return 0;
+        }
     }
 
 
